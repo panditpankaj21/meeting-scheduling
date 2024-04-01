@@ -1,10 +1,9 @@
-import DemoComponent from "./DemoComponent";
-
+import MeetingCard from "./components/MeetingCard";
 
 function App() {
   return (
-    <div>
-   <DemoComponent />
+    <div className="w-full h-screen bg-black flex items-center justify-center">
+      <MeetingCard />
     </div>
   );
 }
