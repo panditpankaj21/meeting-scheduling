@@ -1,10 +1,20 @@
 import logoImage from "../images/webLogo.jpg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faClock } from "@fortawesome/free-regular-svg-icons";
+import { faClock, faCalendar } from "@fortawesome/free-regular-svg-icons";
+import { faArrowLeftLong } from "@fortawesome/free-solid-svg-icons";
+import { TimeUtils } from "../calculations/TimeUtils";
 
-function LeftHalf(){
+function LeftHalf({
+    userData,
+    handlePrevButton,
+}){
     return(
-        <div className="flex sm:flex-col h-full">
+        <div className="flex sm:flex-col h-full relative">
+            {userData.token === 2 && <FontAwesomeIcon 
+                icon={faArrowLeftLong}
+                onClick={handlePrevButton}
+                className=" absolute text-xl text-blue-700 top-5 left-5 border-gray-300 border-[1.2px] hover:bg-blue-50 hover rounded-3xl p-2 cursor-pointer" 
+            />}
             <div className="sm:w-full w-1/2">
                 <img 
                     src={logoImage} 
@@ -21,11 +31,20 @@ function LeftHalf(){
                         Fibery Demo
                     </h1>
                     <p 
-                        className="sm:my-3 text-gray-500 font-semibold"
+                        className="mt-2 mb-2 text-gray-500 font-semibold text-sm"
                     >
                         <FontAwesomeIcon icon={faClock} className="mr-2" />
                         45 min
                     </p>
+                    { userData.token===2 && <p 
+                        className="mb-2 text-gray-500 font-semibold text-sm"
+                    >
+                        <FontAwesomeIcon icon={faCalendar}className="mr-2"/>
+                        {/* TODO:day is also required */}
+                        {userData.time}-{TimeUtils(userData.time)}<br/>
+                        {userData.date}
+                    </p>}
+                    {/* TODO: add time zone when userData.token===2 */}
                 </div>
                 <p 
                     className="font-light text-sm"
