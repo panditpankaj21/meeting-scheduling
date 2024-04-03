@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faClock, faCalendar } from "@fortawesome/free-regular-svg-icons";
 import { faArrowLeftLong } from "@fortawesome/free-solid-svg-icons";
 import { TimeUtils } from "../calculations/TimeUtils";
+import IconText from "./IconText";
 
 function LeftHalf({
     userData,
@@ -30,20 +31,17 @@ function LeftHalf({
                     <h1 className="font-bold sm:text-xl">
                         Fibery Demo
                     </h1>
-                    <p 
-                        className="mt-2 mb-2 text-gray-500 font-semibold text-sm"
-                    >
-                        <FontAwesomeIcon icon={faClock} className="mr-2" />
-                        45 min
-                    </p>
-                    { userData.token===2 && <p 
-                        className="mb-2 text-gray-500 font-semibold text-sm"
-                    >
-                        <FontAwesomeIcon icon={faCalendar}className="mr-2"/>
-                        {/* TODO:day is also required */}
-                        {userData.time}-{TimeUtils(userData.time)}<br/>
-                        {userData.date}
-                    </p>}
+                    <IconText
+                        icon={faClock}
+                        text="45 min"
+                    />
+                    
+                    { userData.token===2 && 
+                        <IconText 
+                            icon={faCalendar} 
+                            text={`${userData.time}-${TimeUtils(userData.time)}, ${userData.date}`} 
+                        />
+                    }
                     {/* TODO: add time zone when userData.token===2 */}
                 </div>
                 <p 
