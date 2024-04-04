@@ -10,7 +10,7 @@ function MeetingCard(){
         token: 1,
     })
 
-    console.log(userData)
+    console.log(userData.date, "pankaj")
 
     const handleNextButton = ()=>{
         setUserData((prev) => {
@@ -33,10 +33,10 @@ function MeetingCard(){
     return(
         <>
             {userData.token < 3 && <div 
-                className={`bg-white sm:h-3/4 sm:w-[65%] h-3/5 w-3/4 rounded-lg sm:flex sm:justify-between overflow-hidden`}
+                className={`bg-white sm:h-3/4 sm:w-[65%] h-3/5 w-3/4 rounded-lg sm:flex sm:justify-between sm:overflow-hidden overflow-auto shadow-lg `}
             >
-            <div 
-                    className={`h-[50%] w-1/2 sm:h-full sm:w-[60%] sm:border-gray-400 sm:border-r-[1px]`}
+                <div 
+                    className={`w-full sm:h-full sm:w-1/2 sm:border-gray-400 sm:border-r-[1px]`}
                 >
                     <LeftHalf 
                         userData={userData}
@@ -44,12 +44,11 @@ function MeetingCard(){
                     />
                 </div>
                 <div   
-                    className={`h-full w-1/2 sm:h-full ${userData.date ? "sm:w-[800px]" : "sm:w-[500px] "}`} 
+                    className={`w-full sm:h-full sm:w-[60%] `} 
                 >
                     <RightHalf 
                         userData={userData}
                         handleNextButton={handleNextButton}
-                        handlePrevButton={handlePrevButton}
                         setUserData={setUserData}
                     />
                 </div>
@@ -62,3 +61,6 @@ function MeetingCard(){
     )
 }
 export default MeetingCard;
+
+// ${userData.date==="" ? "sm:w-1/2":"sm:w-[60%]"}
+// ${userData.date ? "sm:w-1/2" : "sm:w-[500px]"}

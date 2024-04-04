@@ -3,16 +3,17 @@ import Calendar from "./Calendar"
 import Time from "./Time"
 import { times } from "../data/times"
 import MeetingDetailForm from "./MeetingDetailForm"
+import {format} from "date-fns"
 
 
 function RightHalf({
     userData,
     handleNextButton,
-    handlePrevButton,
     setUserData,
 }){
     const [selectDate, setSelectDate]=useState(null)
     const [availableTime, setAvailableTime] = useState(times)
+    console.log(selectDate)
 
     const handleClickNext = (time) => {
         const date = new Date(selectDate);
@@ -35,30 +36,31 @@ function RightHalf({
             {
                 userData.token===1 && (
                 <div className="h-full w-full">
-                    <div className="flex h-full">
+                    <div className="sm:flex h-full">
                         <div className="h-full">
+                            <h1 className="text-lg font-bold mt-5 ml-5">Select a Date & Time</h1>
                             <Calendar
                                 selectDate={selectDate}
                                 setSelectDate={setSelectDate}
                             />
                         </div>
-                        {selectDate &&<div className="overflow-auto pr-5 mt-20">
+            
+                        {selectDate &&
+                        <div className="w-full sm:overflow-auto mt-10 px-10 sm:px-0">
+                            <p className="pb-3">{format(selectDate, 'PPP')}</p>
                              {availableTime.map((time) => (
                                 <Time 
                                     time={time} 
                                     key={time.id}
                                     setAvailableTime={setAvailableTime}
                                     handleClickNext={handleClickNext}
+                                    selectDate={selectDate}
                                 />
                             ))}
                             </div>
                         }
                         
                     </div>
-
-                    <button
-                        onClick={handleNextButton}
-                    >Next</button>
                 </div>)
             }
             {userData.token===2 && (
