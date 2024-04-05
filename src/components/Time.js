@@ -20,7 +20,7 @@ function Time({
 
     return(
         <div 
-            className={` ${time.isSelected ? "" : "py-2 px-14 border-blue-300 border-[1.3px]" } w-full rounded-sm mb-2 text-blue-500 bg-white font-semibold hover:bg-blue-50 cursor-pointer text-center `}
+            className={` ${time.isSelected ? "" : "py-2 px-14 border-blue-300 border-[1.3px]" } w-full rounded-sm mb-2 text-blue-500 bg-white font-semibold hover:bg-blue-50 cursor-pointer text-center`}
             onClick={handleClick}
         >
             
@@ -29,12 +29,12 @@ function Time({
                         
                     <div className="w-full flex justify-between">
                         <div 
-                            className="w-[49%] rounded-sm bg-gray-500 text-white font-semibold hover:bg-gray-600 cursor-pointer text-center py-2 px-[16px]"
+                            className="w-[49%] rounded-sm bg-gray-500 text-white font-semibold hover:bg-gray-600 cursor-pointer text-center py-2 px-auto"
                         >
                             {time.time}
                         </div>
                         <div 
-                            className="w-[49%] rounded-sm bg-blue-500 text-white font-semibold hover:bg-blue-600 cursor-pointer text-center py-2 px-[16px]"
+                            className="w-[49%] rounded-sm bg-blue-500 text-white font-semibold hover:bg-blue-600 cursor-pointer text-center py-2 px-auto"
                             onClick={() => handleClickNext(time.time)}
                         >
                             Next

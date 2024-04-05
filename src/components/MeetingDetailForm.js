@@ -38,6 +38,15 @@ function MeetingDetailForm({
 
     const handleScheduleEvent = (event)=>{
         event.preventDefault();
+        if(formData.name===""){
+            alert("Please enter your name");
+            return;
+        }
+        if(formData.email===""){
+            alert("Please enter your email");
+            return;
+        }
+        
         setUserData(prev => {
             return {
                 ...prev,

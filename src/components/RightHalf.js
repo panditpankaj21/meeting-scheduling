@@ -4,6 +4,7 @@ import Time from "./Time"
 import { times } from "../data/times"
 import MeetingDetailForm from "./MeetingDetailForm"
 import {format} from "date-fns"
+import TimeZoneDropdown from "./TimeZoneDropdown"
 
 
 function RightHalf({
@@ -36,17 +37,19 @@ function RightHalf({
             {
                 userData.token===1 && (
                 <div className="h-full w-full">
-                    <div className="sm:flex h-full">
-                        <div className="h-full">
+                    <div className="lg:flex h-full overflow-auto"
+                    >
+                        <div className="">
                             <h1 className="text-lg font-bold mt-5 ml-5">Select a Date & Time</h1>
                             <Calendar
                                 selectDate={selectDate}
                                 setSelectDate={setSelectDate}
                             />
+                            <TimeZoneDropdown setUserData={setUserData}/>
                         </div>
             
                         {selectDate &&
-                        <div className="w-full sm:overflow-auto mt-10 px-10 sm:px-0">
+                        <div className="w-full sm:overflow-auto sm:mt-5 lg:mt-10 px-10 mt-4 sm:px-5 lg:px-0 ">
                             <p className="pb-3">{format(selectDate, 'PPP')}</p>
                              {availableTime.map((time) => (
                                 <Time 

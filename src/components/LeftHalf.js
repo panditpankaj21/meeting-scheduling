@@ -1,7 +1,7 @@
 import logoImage from "../images/webLogo.jpg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faClock, faCalendar } from "@fortawesome/free-regular-svg-icons";
-import { faArrowLeftLong } from "@fortawesome/free-solid-svg-icons";
+import { faArrowLeftLong, faEarthAmericas } from "@fortawesome/free-solid-svg-icons";
 import { TimeUtils } from "../calculations/TimeUtils";
 import IconText from "./IconText";
 
@@ -37,10 +37,16 @@ function LeftHalf({
                     />
                     
                     { userData.token===2 && 
+                    <>
                         <IconText 
                             icon={faCalendar} 
                             text={`${userData.time}-${TimeUtils(userData.time)}, ${userData.date}`} 
                         />
+                        <IconText 
+                            icon={faEarthAmericas} 
+                            text={userData.timeZone}
+                        />
+                    </>
                     }
                     {/* TODO: add time zone when userData.token===2 */}
                 </div>
