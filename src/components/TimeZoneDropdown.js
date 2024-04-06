@@ -17,7 +17,7 @@ function TimeZoneDropdown({
   }
 
   return (
-    <div className='ml-7 '>
+    <div className='ml-5 '>
         <FontAwesomeIcon 
             icon={faEarthAmericas}
         />
