@@ -68,7 +68,7 @@ function RightHalf({
                         </div>
             
                         {selectDate &&
-                        <div className="w-full sm:overflow-auto sm:mt-5 lg:mt-10 px-10 mt-4 sm:px-5 lg:px-0 ">
+                        <div className="w-full sm:overflow-auto sm:mt-5 lg:mt-10 px-10 mt-4 sm:px-5 lg:px-0">
                             <p className="pb-3">{format(selectDate, 'PPP')}</p>
                              {availableTime.map((time) => (
                                 <Time 

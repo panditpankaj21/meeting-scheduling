@@ -9,12 +9,12 @@ const Select = ({
 }) => {
     
       return (
-        <div className="flex flex-col mb-5">
+        <div className="flex flex-col mb-3">
             <div 
               className="text-xs mb-1 font-semibold"
             >{label}</div>
           {options.map(option => (
-            <label key={option.value} className="flex items-center mb-1 text-sm">
+            <label key={option.value} className="flex items-center mb-2 text-sm">
               <input
                 type="checkbox"
                 name={name}

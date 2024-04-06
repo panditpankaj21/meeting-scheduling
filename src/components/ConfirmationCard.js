@@ -10,7 +10,7 @@ function ConfirmationCard({
     userData,
 }){
     return(
-        <div className="bg-white pb-5 sm:w-[65%] rounded-lg flex flex-col items-center overflow-auto">
+        <div className="bg-white pb-5 w-[95%] lg:w-[65%] rounded-lg flex flex-col items-center overflow-auto">
             <div className="overflow-hidden rounded-full h-20 w-20 mt-5">
                 <img src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?q=80&w=2080&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="profile"
                 className="h-20 w-20"

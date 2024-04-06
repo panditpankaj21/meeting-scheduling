@@ -1,17 +1,5 @@
 import { DayPicker } from 'react-day-picker';
 import 'react-day-picker/dist/style.css';
-import { differenceInCalendarDays } from 'date-fns';
-import { Row} from 'react-day-picker';
-
-function isPastDate(date) {
-  return differenceInCalendarDays(date, new Date()) <0;
-}
-
-function OnlyFutureRow(props) {
-  const isPastRow = props.dates.every(isPastDate);
-  if (isPastRow) return <></>;
-  return <Row {...props} />;
-}
 
 const css = `
   .my-selected:not([disabled]) { 
@@ -19,12 +7,32 @@ const css = `
     color: white;
     background-color: rgb(37 99 235);
   }
-  .my-selected:hover:not([disabled]) { 
-    // color: blue;
-  }
   .my-today { 
     color: gray;
   }
+  .rdp-head_cell {
+    font-weight:400;
+    color:rgb(30 41 59);
+  }
+  .rdp-cell {
+    padding:5px;
+    border-radius: 100%;
+  }
+  .rdp-day {
+    color:rgb(37 99 235);
+    background-color:rgb(239 246 255);
+    font-weight:bold;
+  }
+  .rdp-caption_label {
+    font-weight:400;
+    color:rgb(30 41 59);
+  }
+  .rdp-nav_button {
+    color:gray;
+  }
+  .rdp-nav_button:hover {
+    color:rgb(96 165 250);
+  }  
 `;
 
 function Calendar({
@@ -51,6 +59,10 @@ function Calendar({
       <>
       <style>{css}</style>
         <DayPicker
+          weekStartsOn={1}
+          formatters={{
+            formatWeekdayName: (day) => day?.toLocaleDateString('en-US', { weekday: 'short' }),
+          }}
           mode="single"
           selected={selectDate}
           onSelect={setSelectDate}
@@ -58,9 +70,9 @@ function Calendar({
           modifiersClassNames={{
             selected: 'my-selected',
             today: 'my-today'
-          }}
+          }}   
           fromDate={new Date()}
-          components={{ Row: OnlyFutureRow }}
+          disabled={new Date()}
         />
       </>
     );
