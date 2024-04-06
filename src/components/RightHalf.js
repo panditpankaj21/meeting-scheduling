@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import Calendar from "./Calendar"
 import Time from "./Time"
 import { times } from "../data/times"
@@ -14,7 +14,25 @@ function RightHalf({
 }){
     const [selectDate, setSelectDate]=useState(null)
     const [availableTime, setAvailableTime] = useState(times)
-    console.log(selectDate)
+
+
+    useEffect(() => {
+        if(selectDate===null) return
+        let date = new Date(selectDate);
+        if(selectDate===undefined){
+            date = null;
+        }
+        setUserData((prev) => {
+            return {
+                ...prev,
+                date: date?.toLocaleDateString('en-US', { 
+                  year: 'numeric', 
+                  month: 'long', 
+                  day: 'numeric' 
+              }),
+            }
+        })
+    }, [selectDate, setUserData])
 
     const handleClickNext = (time) => {
         const date = new Date(selectDate);
@@ -44,6 +62,7 @@ function RightHalf({
                             <Calendar
                                 selectDate={selectDate}
                                 setSelectDate={setSelectDate}
+                                setUserData={setUserData}
                             />
                             <TimeZoneDropdown setUserData={setUserData}/>
                         </div>

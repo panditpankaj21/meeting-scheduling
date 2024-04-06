@@ -11,8 +11,6 @@ function MeetingCard(){
         token: 1,
     })
 
-    console.log(userData, "pankaj")
-
     const handleNextButton = ()=>{
         setUserData((prev) => {
             return {
@@ -45,7 +43,7 @@ function MeetingCard(){
                     />
                 </div>
                 <div   
-                    className={`w-full min-[837px]:h-full min-[837px]:w-[60%] min-[1212px]:w-[70%]`} 
+                    className={`w-full min-[837px]:h-full ${userData.date ? "min-[1212px]:w-[70%]" : "min-[837px]:w-1/2"}`} 
                 >
                     <RightHalf 
                         userData={userData}

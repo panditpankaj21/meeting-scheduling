@@ -4,7 +4,7 @@ import { differenceInCalendarDays } from 'date-fns';
 import { Row} from 'react-day-picker';
 
 function isPastDate(date) {
-  return differenceInCalendarDays(date, new Date()) <= 0;
+  return differenceInCalendarDays(date, new Date()) <0;
 }
 
 function OnlyFutureRow(props) {
@@ -32,6 +32,7 @@ function Calendar({
     selectDate,
 }){
   
+
 
   const style = {
     head_cell: {
