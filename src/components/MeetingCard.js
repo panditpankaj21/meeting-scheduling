@@ -32,10 +32,10 @@ function MeetingCard(){
     return(
         <>
             {userData.token < 3 && <div 
-                className={`bg-white min-[837px]:h-3/4 min-[837px]:w-[65%] h-3/5 w-3/4 rounded-lg min-[837px]:flex min-[837px]:justify-between min-[837px]:overflow-hidden overflow-auto`}
+                className={`bg-white desktop:h-3/4 desktop:w-[65%] h-3/5 w-3/4 rounded-lg desktop:flex desktop:justify-between desktop:overflow-hidden overflow-auto`}
             >
                 <div 
-                    className={`w-full min-[837px]:w-1/2 min-[837px]:border-gray-400 min-[837px]:border-r-[1px]`}
+                    className={`w-full desktop:w-1/2 desktop:border-gray-400 desktop:border-r-[1px]`}
                 >
                     <LeftHalf 
                         userData={userData}
@@ -43,7 +43,7 @@ function MeetingCard(){
                     />
                 </div>
                 <div   
-                    className={`w-full ${userData.date ? "min-[1212px]:w-[70%]" : "min-[837px]:w-1/2"}`} 
+                    className={`w-full ${userData.date ? "min-[1212px]:w-[70%]" : "desktop:w-1/2"}`} 
                 >
                     <RightHalf 
                         userData={userData}

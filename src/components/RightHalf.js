@@ -55,7 +55,7 @@ function RightHalf({
             {
                 userData.token===1 && (
                 <div className="h-full w-full">
-                    <div className="lg:flex h-full overflow-auto"
+                    <div className="laptop:flex h-full overflow-auto"
                     >
                         <div className="">
                             <h1 className="text-lg font-bold mt-5 ml-5">Select a Date & Time</h1>

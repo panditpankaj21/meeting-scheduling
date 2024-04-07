@@ -20,7 +20,7 @@ const css = `
   }
   .rdp-day {
     color:rgb(37 99 235);
-    background-color:rgb(239 246 255);
+    background-color:rgb(240 249 255);
     font-weight:bold;
   }
   .rdp-caption_label {
